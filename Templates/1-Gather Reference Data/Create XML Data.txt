@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" ?>
+<Navigation>
+  <Row NavigationId="1" NavigationIdParent="" AcAppId="2" LabelId="" UiObject="&lt;div&gt;" UiClass="navbar navbar-default navbar-inner-blue" HtmlId="" HtmlName="" HtmlAttributes="style='margin-bottom:0px;padding-left:0px;'" UseElementCloser="N" IsHtmlOnly="Y" HasDropDown="N" IsAutoClosed="Y" DisplayOrder="10" TriggerName="main-tb-base" AreaName="" ControllerName="" ActionName="" Protocol="" HostName="" RouteValues="" ActionHtmlAttributes="" UseRouteLink="N" RouteName="" ActiveTriggers="" ActiveOff="" CreatedBy="F30363C3-4738-41BF-8628-A6E58940ECE8" CreatedOn="2014-01-27T04:59:06" UpdatedBy="" UpdatedOn="" DeactivatedBy="" DeactivatedOn="" />
+</Navigation>

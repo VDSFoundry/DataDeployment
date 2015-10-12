@@ -1,0 +1,114 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension="txt" #>
+<#@ assembly name="Microsoft.SqlServer.ConnectionInfo" #>
+<#@ assembly name="Microsoft.SqlServer.Smo" #>
+<#@ assembly name="Microsoft.SqlServer.Management.Sdk.Sfc" #>
+<#@ import namespace="Microsoft.SqlServer.Management.Smo" #>
+<#@ import namespace="Microsoft.SqlServer.Management.Common" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ include file="SQLConnection.tt" #>
+<#@ assembly name="System.Xml" #>
+<#@ parameter type="System.String" name="TableName" #>
+<#
+    var tableName = "";
+	if (TableName == null || TableName == "" ) { 
+		tableName = "PayableHeaderKeySource"; 
+	} 
+	else {
+		tableName = TableName;
+	}
+
+	ServerConnection serverConn = new ServerConnection();
+	serverConn.ServerInstance = GetSQLServerInstance();
+	serverConn.LoginSecure = false;
+	serverConn.Login = GetSQLUsername();
+	serverConn.Password = GetSQLPassword();
+	Server server = new Server(serverConn);
+
+    Database database = new Database(server, GetSQLDatabase());
+    Table table = new Table(database, tableName);
+    table.Refresh();
+
+#>SELECT
+<#
+	PushIndent("       ");
+	var firstRow = true;
+    foreach (Column column in table.Columns)
+    {
+		if(firstRow == true) {
+			firstRow = false;
+		}
+		else {
+			WriteLine(",");
+		}
+
+        Write(columnName(column));
+    }
+	PopIndent();
+	WriteLine("");
+#>
+FROM   <#= table.Name #>
+FOR XML PATH('Row'), ROOT('<#= table.Name #>')
+<#+
+// Insert any template procedures here
+
+public string columnName(Column column) {
+    string returnValue = "";
+
+	switch(column.DataType.Name) {
+		case "datetime":
+		case "datetime2":
+		case "datetimeoffset":
+		case "smalldatetime":
+		case "date":
+		case "time":
+   			returnValue = "\"@" + column.Name + "\" = ISNULL(CONVERT(VARCHAR(19), " + column.Name + ",126), '') ";
+            break;
+		case "uniqueidentifier":
+   			returnValue = "\"@" + column.Name + "\" = ISNULL(CAST(" + column.Name + " AS VARCHAR(50)), '') ";
+			break;
+		case "int":
+				returnValue = "\"@" + column.Name + "\" = ISNULL(CAST(" + column.Name + " AS NVARCHAR(16)), '')";
+			break;	
+		case "bit":
+		case "smallint":		
+		case "bigint":
+		case "smallmoney":
+		case "money":
+		case "float":
+		case "real":
+		case "numeric":
+		case "decimal":
+		case "varchar":
+		case "nvarchar":
+		case "char":
+		case "nchar":	
+			returnValue = "\"@" + column.Name + "\" = ISNULL(" + column.Name + ", '') ";
+			break;	
+		default:
+   			returnValue = "\"@" + column.Name + "\" = ISNULL(" + column.Name + ", '') ";
+			break;
+	}
+    return returnValue;
+}
+
+public bool isMetaColumn(string columnName) {
+	var returnValue = false;
+
+    Dictionary<int, string> metaColumns = new Dictionary<int, string>() {
+		{1,"UpdatedBy"} ,
+		{2,"UpdatedOn"} ,
+		{3,"DeactivatedBy"} ,
+		{4,"DeactivatedOn"}
+	};
+
+	foreach (var value in metaColumns.Values) {
+		if(columnName == value) {
+			returnValue = true;
+			break;
+		}
+	}  
+	return returnValue;
+}
+
+#>

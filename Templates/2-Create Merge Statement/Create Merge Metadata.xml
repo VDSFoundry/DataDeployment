@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<tables>
+	<!-- First we list the prime data tables. Tables that are prime and depend on these are listed 
+		in a separate section below. Will keep these alphabetical.-->
+	<table name="AccessPolicyKeySource" type="prime" skipupdate="false" forcepk="true" indexkey="PK_AccessPolicyKeySource"></table>
+	<table name="AccountMaster" type="prime" skipupdate="false" forcepk="true" indexkey="PK_AccountMaster"></table>
+	<table name="AcquisitionType" type="prime" skipupdate="false" forcepk="true" indexkey="PK_AcquisitionType"></table>
+	<table name="AppMap" type="prime" skipupdate="false" forcepk="true" indexkey="PK_AppMap"></table>
+	<table name="AssignmentType" type="prime" skipupdate="false" forcepk="true" indexkey="PK_AssignmentType"></table>
+	<table name="CommCategory" type="prime" skipupdate="false" forcepk="true" indexkey="PK_CommCategory"></table>
+	<table name="CommChoice" type="prime" skipupdate="false" forcepk="true" indexkey="PK_CommChoice"></table>
+	<table name="CommType" type="prime" skipupdate="false" forcepk="true" indexkey="PK_CommType"></table>
+	<table name="ContactType" type="prime" skipupdate="false" forcepk="true" indexkey="PK_ContactType"></table>
+	<!-- Empty table <table name="ContractorType" type="prime" skipupdate="false" forcepk="true" indexkey="PK_ContractorType"></table> -->
+	<table name="DataOrigin" type="prime" skipupdate="false" forcepk="true" indexkey="PK_DataOrigin"></table>
+	<table name="DocumentConnectKeySource" type="prime" skipupdate="false" forcepk="true" indexkey="PK_DocumentConnectKeySource"></table>
+	<table name="DocumentIntentKeySource" type="prime" skipupdate="false" forcepk="true" indexkey="PK_DocumentIntentKeySource"></table>	
+	<table name="DocumentMapKeySource" type="prime" skipupdate="false" forcepk="true" indexkey="PK_DocumentMapKeySource"></table>
+	<table name="DocumentPurpose" type="prime" skipupdate="false" forcepk="true" indexkey="PK_DocumentPurpose"></table>
+	<table name="DocumentTextSection" type="prime" skipupdate="false" forcepk="true" indexkey="PK_DocumentTextSection"></table>
+	<table name="DocumentType" type="prime" skipupdate="false" forcepk="true" indexkey="PK_DocumentType"></table>
+	<!-- Empty table <table name="EmailTemplate" type="prime" skipupdate="false" forcepk="true" indexkey="PK_EmailTemplate"></table>-->
+	<!-- Empty table <table name="ExternalNamedSearch" type="prime" skipupdate="false" forcepk="true" indexkey="PK_ExternalNamedSearch"></table>-->
+	<!-- Empty table <table name="ExternalParameter" type="prime" skipupdate="false" forcepk="true" indexkey="PK_ExternalParameter"></table>-->
+	<table name="ExternalValue" type="prime" skipupdate="false" forcepk="true" indexkey="PK_ExternalValue"></table>
+	<table name="Feature" type="prime" skipupdate="false" forcepk="true" indexkey="PK_Feature"></table>
+	<!-- Empty table <table name="Hoa" type="prime" skipupdate="false" forcepk="true" indexkey="PK_Hoa"></table>-->
+	<!-- Empty table <table name="HoaContact" type="prime" skipupdate="false" forcepk="true" indexkey="PK_HoaContact"></table>-->
+	<table name="Hoc" type="prime" skipupdate="false" forcepk="true" indexkey="PK_Hoc"></table>
+	<table name="HudStep" type="prime" skipupdate="false" forcepk="true" indexkey="PK_HudStep"></table>
+	<table name="InspFormType" type="prime" skipupdate="false" forcepk="true" indexkey="PK_InspFormType"></table>
+	<table name="LoanKeySource" type="prime" skipupdate="false" forcepk="true" indexkey="PK_LoanKeySource"></table>
+	<table name="MainStep" type="prime" skipupdate="false" forcepk="true" indexkey="PK_MainStepId"></table>
+	<table name="NoteKeySource" type="prime" skipupdate="false" forcepk="true" indexkey="PK_NoteKeySource"></table>
+	<table name="NoteType" type="prime" skipupdate="false" forcepk="true" indexkey="PK_NoteType"></table>
+	<table name="NspType" type="prime" skipupdate="false" forcepk="true" indexkey="PK_NspTypeId"></table>
+	<table name="OpRoleGroupPurpose" type="prime" skipupdate="false" forcepk="true" indexkey="PK_OpRoleGroupPurpose"></table>
+	<table name="PaidVia" type="prime" skipupdate="false" forcepk="true" indexkey="PK_PaidVia"></table>
+	<table name="PayableCategory" type="prime" skipupdate="false" forcepk="true" indexkey="PK_PayableCategory"></table>
+	<table name="PayableDetailKeySource" type="prime" skipupdate="false" forcepk="true" indexkey="PK_PayableDetailKeySource"></table>
+	<table name="PayableHeaderKeySource" type="prime" skipupdate="false" forcepk="true" indexkey="PK_PayabeHeaderKeySource"></table>
+	<table name="PayableStatus" type="prime" skipupdate="false" forcepk="true" indexkey="PK_PayableStatus"></table>
+	<table name="PropertyStatus" type="prime" skipupdate="false" forcepk="true" indexkey="PK_PropertyStatus"></table>
+	<table name="PropertyType" type="prime" skipupdate="false" forcepk="true" indexkey="PK_PropertyType"></table>
+	<table name="PropertyVendorMasterStatus" type="prime" skipupdate="false" forcepk="true" indexkey="PK_PropertyVendorMasterStatus"></table>
+	<table name="PropertyVendorStatus" type="prime" skipupdate="false" forcepk="true" indexkey="PK_PropertyVendorStatus"></table>
+	<table name="RecurPlanKeySource" type="prime" skipupdate="false" forcepk="true" indexkey="PK_RecurPlanKeySource"></table>
+	<table name="ReportFilter" type="prime" skipupdate="false" forcepk="true" indexkey="PK_ReportFilter"></table>
+	<table name="ShipVia" type="prime" skipupdate="false" forcepk="true" indexkey="PK_ShipVia"></table>
+	<table name="StakeholderCategory" type="prime" skipupdate="false" forcepk="true" indexkey="PK_StakeholderCategory"></table>
+	<!-- Empty table <table name="StakeholderKeySource" type="prime" skipupdate="false" forcepk="true" indexkey="PK_StakeholderKeySource"></table>-->
+	<table name="StatuteStatus" type="prime" skipupdate="false" forcepk="true" indexkey="PK_StatuteStatus"></table>
+	<table name="TenantStatus" type="prime" skipupdate="false" forcepk="true" indexkey="PK_TenantStatus"></table>
+	<table name="TodoKeySource" type="prime" skipupdate="false" forcepk="true" indexkey="PK_TodoKeySource"></table>
+	<table name="TodoType" type="prime" skipupdate="false" forcepk="true" indexkey="PK_TodoType"></table>
+	<table name="UploadCategory" type="prime" skipupdate="false" forcepk="true" indexkey="PK_UploadCategory"></table>
+	<table name="VendorPurpose" type="prime" skipupdate="false" forcepk="true" indexkey="PK_VendorPurpose"></table>
+	<table name="VendorStatus" type="prime" skipupdate="false" forcepk="true" indexkey="PK_VendorStatus"></table>
+	<table name="WorkflowResult" type="prime" skipupdate="false" forcepk="true" indexkey="PK_WorkflowResult"></table>
+	<table name="WorkOrderAuditStatus" type="prime" skipupdate="false" forcepk="true" indexkey="PK_WorkOrderAuditStatus"></table>
+	<table name="WorkorderCategory" type="prime" skipupdate="false" forcepk="true" indexkey="PK_WorkorderCategory"></table>
+	<table name="WorkOrderStatus" type="prime" skipupdate="false" forcepk="true" indexkey="PK_WorkOrderStatus"></table>
+
+	<!-- These are still prime data tables but they depend on the tables above.
+			We'll try to keep these alphabetical unless they have other dependencies among
+			themselves. -->
+	<table name="AccessPolicy" type="prime" skipupdate="false" forcepk="true" indexkey="PK_AccessPolicy"></table>
+	<table name="DocumentAppKeySource" type="prime" skipupdate="false" forcepk="true" indexkey="PK_DocumentAppKeySource"></table>
+	<table name="DocumentAppFolder" type="prime" skipupdate="false" forcepk="true" indexkey="PK_DocumentAppFolder"></table>
+	<table name="FeatureInApp" type="prime" skipupdate="false" forcepk="true" indexkey="PK_FeatureInApp"></table>
+	<table name="PayableCategoryAccount" type="prime" skipupdate="false" forcepk="true" indexkey="PK_PayableCategoryAccount"></table>
+	<table name="PayableStep" type="prime" skipupdate="false" forcepk="true" indexkey="PK_PayableStep"></table>
+	<table name="ReportName" type="prime" skipupdate="false" forcepk="true" indexkey="PK_ReportName"></table>
+	<table name="ReportParameter" type="prime" skipupdate="false" forcepk="true" indexkey="PK_ReportParameter"></table>
+	<table name="UploadSubType" type="prime" skipupdate="false" forcepk="true" indexkey="PK_UploadSubType"></table>
+	<!--Depends on ReportName-->
+	<table name="StoredCalc" type="prime" skipupdate="false" forcepk="true" indexkey="PK_StoredCalc"></table>
+	
+	
+	<!-- Now for seed data tables. -->
+	<table name="AppPref" type="seeded" skipupdate="true" forcepk="false" indexkey="UQ_AppPref__AcAppId_PrefKey"></table>
+	<table name="ContractArea" type="seeded" skipupdate="true" forcepk="false" indexkey="UQ_ContractArea__AcAppId_TriggerName"></table>
+	<table name="DocumentTypeApp" type="seeded" skipupdate="false" forcepk="true" indexkey="UQ_DocumentTypeApp__DocumentTypeId_DocumentAppKeySourceId"></table>
+	<table name="DocumentTypePhrase" type="seeded" skipupdate="false" forcepk="false" indexkey="UQ_DocumentTypePhrase__DocumentTypeAppId_Phrase"></table>
+	<table name="IngressPurpose" type="seeded" skipupdate="false" forcepk="false" indexkey="UQ_IngressPurpose__AcAppId_TriggerName"></table>
+	<table name="IngressType" type="seeded" skipupdate="false" forcepk="false" indexkey="UQ_IngressType__AcAppId_TriggerName"></table>
+	<table name="JobType" type="seeded" skipupdate="true" forcepk="false" indexkey="UQ_JobType__AcAppId_TriggerName"></table>
+	<table name="Label" type="seeded" skipupdate="true" forcepk="true" indexkey="PK_Label"></table>
+	<table name="LeaseRule" type="seeded" skipupdate="false" forcepk="false" indexkey="UQ_LeaseRule__AcAppId_TriggerName"></table>
+	<table name="LeaseRuleActor" type="seeded" skipupdate="false" forcepk="false" indexkey="UQ_LeaseRuleActor__AcAppId_TriggerName"></table>
+	<table name="LeaseRuleStatus" type="seeded" skipupdate="false" forcepk="false" indexkey="UQ_LeaseRuleStatus__AcAppId_TriggerName"></table>
+	<table name="LeaseRuleType" type="seeded" skipupdate="false" forcepk="false" indexkey="UQ_LeaseRuleType__AcAppId_TriggerName"></table>
+	<table name="OpRole" type="seeded" skipupdate="false" forcepk="true" indexkey="PK_OpRole"></table>
+	<table name="OpRoleGroup" type="seeded" skipupdate="false" forcepk="true" indexkey="UQ_OpRoleGroup_AcAppId_Name"></table>
+	<table name="OpRoleMap" type="seeded" skipupdate="true" forcepk="false" indexkey="UQ_OpRoleMap__OpRoleGroupId_OpRoleIdParent_OpRoleIdChild"></table>
+	<table name="PossessionType" type="seeded" skipupdate="false" forcepk="false" indexkey="UQ_PossesionType__AcAppId_Name"></table>
+	<table name="ProcessorSetting" type="seeded" skipupdate="true" forcepk="false" indexkey="UQ_ProcessorSetting__AcAppId"></table>
+	<table name="RecurPlanDateSource" type="seeded" skipupdate="false" forcepk="false" indexkey="UQ_RecurPlanDateSource__RecurPlanKeySourceId_SourceTable_SourceField"></table>
+	<table name="ReportPhraseMatch" type="seeded" skipupdate="true" forcepk="false" indexkey="UQ_ReportPhraseMatch__ReportNameId_Phrase"></table>
+	<table name="ServiceType" type="seeded" skipupdate="true" forcepk="false" indexkey="UQ_ServiceType__AcAppId_Name"></table>
+	<table name="ServiceTypeDocContainer" type="seeded" skipupdate="true" forcepk="false" indexkey="UQ_ServiceTypeDocContainer__ServiceTypeId_DocumentTypeId"></table>
+	<table name="VendorType" type="seeded" skipupdate="true" forcepk="false" indexkey="UQ_VendorType__AcAppId_Name"></table>
+	
+	<!-- Navigation is really a prime table, there is no UI for it but because it depends on Label...-->
+	<table name="Navigation" type="prime" skipupdate="false" forcepk="true" indexkey="PK_Navigation"></table>
+	<!-- Depends on Label, PayableStep, WorkflowResult, OpRole -->
+	<table name="PayableStepResultMap" type="prime" skipupdate="false" forcepk="true" indexkey="PK_PayableStepResultMap"></table>
+	
+	
+	<!-- The following tables will not be handled by this process:
+		AppUser
+		AppUserRole
+		BackendIdMap
+		ClientFormType
+		CommLog
+		Complex
+		Contact
+		ContactApp
+		ContactPref
+		ContactTypeMap
+		ContractAreaContact
+		Cpu
+		DataTrail
+		Document
+		DocumentConnect
+		DocumentGroupLocation
+		DocumentMap
+		DocumentRootPath
+		DocumentText
+		DocumentTextMatch
+		ExternalSystemClosed
+		FormPkmsMmmPcr
+		FormPkmsMmmQc
+		HudLogin
+		InspHpir
+		InspRoutine
+		JobQueue
+		KeyGen
+		LeaseRuleViolation
+		Loan
+		MainStepTrail
+		Note
+		PayableDetail
+		PayableHeader
+		PayablePayment
+		PayablePaymentTrait
+		PayableStepTrail
+		ProcessLog
+		Property
+		PropertyAssignment
+		PropertyContractor
+		PropertyContractorContact
+		PropertyExternal
+		PropertyIngress
+		PropertyMaster
+		PropertyMasterAlias
+		PropertyMasterExternal
+		PropertyStatusTrail
+		PropertyVendor
+		PropertyVendorContact
+		PropertyVendorMaster
+		PropertyVendorMasterStatusTrail
+		PropertyVendorStatusTrail
+		RecurPlan
+		ServiceGroup
+		ServiceGroupContact
+		ServiceOpGroupMap
+		ServiceTypeCost
+		ServiceTypeCostTrail
+		ServiceTypeMap
+		ServiceTypeRecurPlan
+		StakeholderProperty
+		StatuteStatusTrail
+		Tenant
+		TenantPossession
+		Todo
+		UploadFile
+		Vendor
+		VendorApp
+		VendorContact
+		VendorLeaseRule
+		VendorLeaseRuleTrail
+		VendorMap
+		VendorServiceZip
+		VendorStatusTrail
+		VendorTrait
+		VendorTypeMap
+		Workorder
+		WorkorderApproval
+		WorkOrderAuditStatusTrail
+		WorkOrderService
+		WorkOrderStatusTrail
+		ZipCode (may need to be a seed table)
+	-->
+	
+</tables>

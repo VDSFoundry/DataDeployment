@@ -1,0 +1,63 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".txt" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="System.Xml" #>
+<#@ Assembly Name="System.Xml.Linq" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #><#
+	var templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+	var parentDirectory = (Directory.GetParent(templateDirectory)).FullName;
+
+	var xml = XDocument.Load(Path.Combine(templateDirectory, "Gather Data Metadata.xml"));
+
+	var query = from c in xml.Descendants("table") 
+				select new {
+					name = c.Attribute("name").Value ,
+					type = c.Attribute("type").Value
+				};
+	
+	foreach (var item in query) {
+		
+		if ((item.type == "prime") 
+			|| (item.type == "seeded"))
+		{
+			var tableName = item.name;
+
+			string templateFileName = "Create XML Data.tt";
+			string outputFilePath = Path.Combine(parentDirectory, "..\\Reference Data\\" + tableName + ".xml");  
+
+			TextTemplatingSession session = new TextTemplatingSession();
+			session["TableName"] = tableName;
+
+			var sessionHost = (ITextTemplatingSessionHost) this.Host;
+			sessionHost.Session = session;
+
+			string template = File.ReadAllText(Host.ResolvePath(templateFileName));
+			Engine engine = new Engine();
+			string output = engine.ProcessTemplate(template, this.Host);  
+
+
+			if (output.Length > 0)
+				File.WriteAllText(outputFilePath, CleanXML(output));
+		}
+	}
+#><#+
+	public string CleanXML(string xmlString) {
+		var returnXml = "";
+
+		for (int i = 0; i < xmlString.Length; i++) {
+			if(xmlString[i] == '<') {
+				return xmlString.Substring(i);
+				break;
+			}
+		}
+		return returnXml;
+	}
+#>

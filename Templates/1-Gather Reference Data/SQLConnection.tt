@@ -1,0 +1,25 @@
+﻿<#@ Assembly Name="System.Core" #>
+<#@ import namespace="System" #>
+<#+
+
+	public string GetSQLServerInstance() {
+		return "(local)";
+	}
+
+	public string GetSQLUsername() {
+		return "dbUser";
+	}
+
+	public string GetSQLPassword() {
+		return "pwd";
+	}
+
+	public string GetSQLDatabase() {
+		return "LocalDb";
+	}
+
+    public string GetSQLConnectionString() {
+        return "Server=" + GetSQLServerInstance() + ";Database=" + GetSQLDatabase()  + "; User ID=" + GetSQLUsername() + "; Password=" + GetSQLPassword();
+    }
+
+#>

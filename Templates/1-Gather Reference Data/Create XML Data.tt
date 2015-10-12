@@ -1,0 +1,71 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension="xml" #>
+<#@ assembly Name="System.Core" #>
+<#@ assembly name="Microsoft.SqlServer.ConnectionInfo" #>
+<#@ assembly name="Microsoft.SqlServer.Smo" #>
+<#@ assembly name="Microsoft.SqlServer.Management.Sdk.Sfc" #>
+<#@ assembly name="System.Data.dll" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ assembly name="System.Xml.dll" #>
+<#@ assembly name="System.Xml.Linq.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+<#@ import namespace="Microsoft.SqlServer.Management.Smo" #>
+<#@ import namespace="Microsoft.SqlServer.Management.Common" #>
+<#@ import namespace="System.Text" #>
+<#@ include file="SQLConnection.tt" #>
+<#@ parameter type="System.String" name="TableName" #><#
+
+	using(SqlConnection conn = new SqlConnection(GetSQLConnectionString())){
+	conn.Open();
+	using(SqlCommand cmd = new SqlCommand(GetSQL(), conn)) {
+		System.Xml.XmlReader reader = cmd.ExecuteXmlReader();
+		StringBuilder sb = new StringBuilder();
+
+		if (reader != null) {
+			while (reader.Read())
+				sb.Append(reader.ReadOuterXml());
+		}
+		// This is used to pretify the xml
+		  if (sb.Length > 0)
+		  {
+			  System.Xml.Linq.XDocument doc = System.Xml.Linq.XDocument.Parse(sb.ToString());
+			  WriteLine("<?xml version=\"1.0\" ?>");
+			  WriteLine(doc.ToString());
+
+		}
+	 }
+	}
+
+#><#+
+  // Insert any template procedures here
+  public string GetSQL()
+  {
+	var tableName = "";
+	if (TableName == null ) { 
+		tableName = "PayableHeaderKeySource"; 
+	} 
+	else {
+		tableName = TableName;
+	}
+	
+	string templateFileName = "Create XML Data SQL.tt";
+	string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+
+	TextTemplatingSession session = new TextTemplatingSession();
+	session["TableName"] = tableName;
+
+	var sessionHost = (ITextTemplatingSessionHost) this.Host;
+	sessionHost.Session = session;
+
+	string template = File.ReadAllText(Host.ResolvePath(templateFileName));
+	Engine engine = new Engine();
+	string output = engine.ProcessTemplate(template, this.Host);  
+
+	return output;
+  }
+#>
